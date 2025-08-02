@@ -2,6 +2,12 @@
 
 A modern, full-stack task management application with a Kanban board interface. Built with React, Node.js, Express, MongoDB, and JWT authentication.
 
+## 🌐 Live Demo
+
+**Frontend**: [https://stunning-haupia-2f6f44.netlify.app](https://stunning-haupia-2f6f44.netlify.app)
+
+> **Note**: The frontend is deployed on Netlify. You'll need to deploy the backend separately to use the full application features.
+
 ## Features
 
 - 🔐 **User Authentication**: Sign up, login, and JWT-based session management
@@ -100,9 +106,12 @@ A modern, full-stack task management application with a Kanban board interface. 
 
 ## Deployment
 
-### GitHub Pages Deployment
+### Current Deployment
 
-This project is configured for automatic deployment to GitHub Pages:
+- **Frontend**: Deployed on [Netlify](https://stunning-haupia-2f6f44.netlify.app)
+- **Backend**: Needs to be deployed separately (see options below)
+
+### GitHub Pages Deployment (Alternative)
 
 1. **Push to main branch**
    ```bash
@@ -120,20 +129,40 @@ This project is configured for automatic deployment to GitHub Pages:
 3. **Access your deployed app**
    - Your app will be available at: `https://yourusername.github.io/Task-Manager/`
 
-### Manual Deployment
+### Backend Deployment Options
 
-1. **Build the frontend**
-   ```bash
-   cd frontend
-   npm run build
+Since the frontend is already deployed on Netlify, you only need to deploy the backend:
+
+#### Option 1: Render (Recommended - Free)
+1. Go to [render.com](https://render.com) and sign up
+2. Create a new **Web Service**
+3. Connect your GitHub repository
+4. Set configuration:
+   - **Name**: task-manager-backend
+   - **Environment**: Node
+   - **Build Command**: `cd backend && npm install`
+   - **Start Command**: `cd backend && npm start`
+   - **Root Directory**: `backend`
+5. Add environment variables:
+   ```
+   MONGODB_URI=your-mongodb-connection-string
+   JWT_SECRET=your-secret-key
+   NODE_ENV=production
    ```
 
-2. **Deploy backend**
-   - Deploy the backend to a service like Heroku, Railway, or Render
-   - Update the API base URL in the frontend configuration
+#### Option 2: Railway
+1. Go to [railway.app](https://railway.app) and sign up
+2. Deploy your backend from GitHub
+3. Set root directory to `backend`
+4. Add the same environment variables
 
-3. **Deploy frontend**
-   - Deploy the `frontend/dist` folder to any static hosting service
+#### Option 3: Heroku
+1. Go to [heroku.com](https://heroku.com) and sign up
+2. Create a new app
+3. Deploy using Heroku CLI or GitHub integration
+4. Set the same environment variables
+
+### Manual Deployment (Alternative)
 
 ## Project Structure
 
