@@ -20,9 +20,18 @@ jobs:
         node-version: '18'
         cache: 'npm'
         
-    - name: Install dependencies
+    - name: Install root dependencies
+      run: npm install
+      
+    - name: Install backend dependencies
       run: |
-        npm run install-all
+        cd backend
+        npm install
+        
+    - name: Install frontend dependencies
+      run: |
+        cd frontend
+        npm install
         
     - name: Build frontend
       run: |
